@@ -121,13 +121,19 @@ We used Random Forest with 100 estimators to rank feature importance and selecte
 <p align="center"><img src="images/eda/class_distribution.png" alt="Class Distribution" /></p>
 <p align="center"><em>Target variable distribution after duplicate removal (before outlier removal): 28,200 non-smokers vs 16,352 smokers. Final counts after all cleaning: 27,972 vs 16,112.</em></p>
 
+<br />
+
 <p align="center"><strong>Figure 2: Feature Correlations with Smoking Status</strong></p>
 <p align="center"><img src="images/eda/feature_correlations.png" alt="Feature Correlations" /></p>
 <p align="center"><em>Pearson correlation coefficients between each feature and smoking status, sorted by strength</em></p>
 
+<br />
+
 <p align="center"><strong>Figure 3: Feature Distributions by Smoking Status</strong></p>
 <p align="center"><img src="images/eda/smoking_vs_nonsmoking_boxplots.png" alt="Feature Boxplots" /></p>
 <p align="center"><em>Box plots comparing distributions of top correlated features (gender, hemoglobin, height, weight, triglyceride, HDL) between smokers and non-smokers</em></p>
+
+<br />
 
 <p align="center"><strong>Figure 4: Feature Importance for Smoking Prediction</strong></p>
 <p align="center"><img src="images/eda/feature_importance.png" alt="Feature Importance" /></p>
@@ -156,6 +162,8 @@ KNN is a distance-based classifier that assigns class labels based on the majori
 
 **Observation:** Minimal difference between feature sets. Reduced features performed marginally better on accuracy and recall.
 
+<br />
+
 ### 2. Decision Tree (CART)
 
 CART (Classification and Regression Tree) recursively partitions the feature space using binary splits.
@@ -180,6 +188,8 @@ CART (Classification and Regression Tree) recursively partitions the feature spa
 <p align="center"><img src="images/models/dt_tree_visualization.png" alt="Decision Tree Visualization" /></p>
 <p align="center"><em>First 3 levels of the decision tree trained on reduced features, showing split criteria (gini), sample counts, and class predictions at each node</em></p>
 
+<br />
+
 ### 3. Random Forest
 
 Ensemble method that aggregates predictions from multiple decision trees trained on bootstrap samples.
@@ -203,6 +213,8 @@ Ensemble method that aggregates predictions from multiple decision trees trained
 <p align="center"><img src="images/models/rf_feature_importance.png" alt="Random Forest Feature Importance" /></p>
 <p align="center"><em>Feature importance comparison between full model (left, 15 features shown) and reduced model (right, all 15 features). Gender dominates in both, followed by hemoglobin, gtp, and height.</em></p>
 
+<br />
+
 ### 4. Support Vector Machine (SVM)
 
 Maximum margin classifier that finds the optimal hyperplane separating classes in feature space.
@@ -222,6 +234,8 @@ Maximum margin classifier that finds the optimal hyperplane separating classes i
 
 **Observation:** Reduced features outperformed full features on accuracy and recall. SVM benefits from dimensionality reduction.
 
+<br />
+
 ### 5. Naive Bayes
 
 Probabilistic classifier based on Bayes theorem with strong independence assumptions between features.
@@ -239,6 +253,8 @@ We tested Gaussian NB, Bernoulli NB, Multinomial NB, and Complement NB. Gaussian
 | ROC-AUC   | 0.7925        | 0.7909           |
 
 **Observation:** Highest recall among simpler models. Lower precision indicates more false positives. Suitable when missing smokers is more costly than false alarms.
+
+<br />
 
 ### 6. Logistic Regression
 
@@ -259,6 +275,8 @@ Linear classifier that models the probability of class membership using the logi
 | ROC-AUC   | 0.8302        | 0.8244           |
 
 **Observation:** Highest recall (93.27%) and F1 score (0.7061) among all models. The balanced class weights addressed the 63:37 class imbalance effectively.
+
+<br />
 
 ### 7. Neural Network
 
@@ -337,6 +355,8 @@ Overall, the reduced feature set (16 vs 30 features) maintained about 99% of ful
 <p align="center"><strong>Figure 7: Overall Model Ranking</strong></p>
 <p align="center"><img src="images/evaluation/model_ranking.png" alt="Model Ranking" /></p>
 <p align="center"><em>Normalized ranking of all 14 model variants (7 models x 2 feature sets) based on average performance across accuracy, precision, recall, F1 score, and ROC-AUC</em></p>
+
+<br />
 
 <p align="center"><strong>Figure 8: Top Models Performance Comparison</strong></p>
 <p align="center"><img src="images/evaluation/radar_chart_top_models.png" alt="Radar Chart" /></p>
